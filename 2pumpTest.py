@@ -1,6 +1,6 @@
-import sys
-sys.path.append('')
+
 import pumpy
+import sys
 
 chain = pumpy.Chain('../../../../../dev/ttyUSB0')
 phd = pumpy.PHD2000(chain,address=1, name="Pump1") # PHD2000
