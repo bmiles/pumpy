@@ -6,7 +6,7 @@ import time
 from progress.bar import Bar
 
 def infuseProg(flowRate, targetVol):
-  totalDur = (1/flowRate)*targetvol
+  totalDur = (1/flowRate)*targetVol
   delayDur = totalDur/20
   bar = Bar('Processing', max=20)
   for i in range(20):
