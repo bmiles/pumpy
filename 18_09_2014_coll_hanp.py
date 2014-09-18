@@ -28,18 +28,18 @@ PHDha.setdiameter(25)
 PHDcoll.setflowrate(600)
 PHDha.setflowrate(600)
 # Set each target volume for each infuse.
-PHDcoll.settargetvolume(200)
-PHDha.settargetvolume(200)
+PHDcoll.settargetvolume(2000)
+PHDha.settargetvolume(2000)
 
 
 for i in range(0,20):
   PHDcoll.infuse()
   logging.info('Collagen: infusing, cycle ' + str(i))
-  infuseProg(600, 200)
+  infuseProg(600, 2000)
   PHDcoll.stop()
   logging.info('Collagen: stopped infusing, cycle ' + str(i))
   PHDha.infuse()
-  infuseProg(600, 200)
+  infuseProg(600, 2000)
   logging.info('HAnp: infusing, cycle ' + str(i))
   PHDha.stop()
   logging.info('HAnp: stopped infusing, cycle ' + str(i))
