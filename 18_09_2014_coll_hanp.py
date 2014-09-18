@@ -3,12 +3,12 @@ import pumpy
 import logging
 import time
 
-from progress.bar import Bar
+from progress.bar import ChargingBar
 
 def infuseProg(flowRate, targetVol):
-  totalDur = (1/flowRate)*targetVol
+  totalDur = ((1/flowRate)*targetVol) * 60
   delayDur = totalDur/20
-  bar = Bar('Processing', max=20)
+  bar = ChargingBar('Infusing', max=20)
   for i in range(20):
       time.sleep(delayDur)
       bar.next()
