@@ -1,5 +1,4 @@
 import sys
-sys.path.append('')
 import pumpy
 
 chain = pumpy.Chain('../../../../../dev/ttyUSB0')
