@@ -1,6 +1,19 @@
 import sys
 import pumpy
 import logging
+import time
+
+from progress.bar import Bar
+
+def infuseProg(flowRate, targetVol):
+  totalDur = (1/flowRate)*targetvol
+  delayDur = totalDur/20
+  bar = Bar('Processing', max=20)
+  for i in range(20):
+      time.sleep(delayDur)
+      bar.next()
+  bar.finish()
+
 
 logging.basicConfig(level=logging.INFO)
 
@@ -22,9 +35,11 @@ PHDha.settargetvolume(200)
 for i in range(0,20):
   PHDcoll.infuse()
   logging.info('Collagen: infusing, cycle ' + str(i))
+  infuseProg(600, 200)
   PHDcoll.stop()
   logging.info('Collagen: stopped infusing, cycle ' + str(i))
   PHDha.infuse()
+  infuseProg(600, 200)
   logging.info('HAnp: infusing, cycle ' + str(i))
   PHDha.stop()
   logging.info('HAnp: stopped infusing, cycle ' + str(i))
