@@ -18,12 +18,12 @@ PHDha.settargetvolume(200)
 
 for i in range(0,20):
   PHDcoll.infuse()
-  print('Collagen: infusing cycle ' + str(i))
+  logging.info('Collagen: infusing, cycle ' + str(i))
   PHDcoll.stop()
-  print('Collagen: stopped infusing cycle ' + str(i))
+  logging.info('Collagen: stopped infusing, cycle ' + str(i))
   PHDha.infuse()
-  print('HAnp: infusing cycle ' + str(i))
+  logging.info('HAnp: infusing, cycle ' + str(i))
   PHDha.stop()
-  print('HAnp: stopped infusing cycle ' + str(i))
+  logging.info('HAnp: stopped infusing, cycle ' + str(i))
 
 sys.exit()
