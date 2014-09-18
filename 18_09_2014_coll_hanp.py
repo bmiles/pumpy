@@ -16,7 +16,7 @@ PHDcoll.settargetvolume(200)
 PHDha.settargetvolume(200)
 
 
-for i in range(0,20)
+for i in range(0,20):
   PHDcoll.infuse()
   print('Collagen: infusing cycle ' + i)
   PHDcoll.stop()
