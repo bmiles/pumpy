@@ -1,5 +1,8 @@
 import sys
 import pumpy
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 chain = pumpy.Chain('../../../../../dev/ttyUSB0')
 PHDcoll = pumpy.PHD2000(chain,address=1, name="PHDcollagen") # PHD2000
