@@ -40,13 +40,13 @@ PHDcoll = pumpy.PHD2000(chain,address=1, name="PHDcollagen") # PHD2000
 PHDha = pumpy.PHD2000(chain,address=12, name="PHDhaNP") # special pump
 
 tVol = 2000 # 2mL
-tTime = 1 # 60 minutes
+tTime = 60 # 60 minutes
 flowRate = tVol/tTime
-cycles = 20
+cycles = 21 #21 does 20 cycles
 
-# Set diameters
-PHDcoll.setdiameter(25)
-PHDha.setdiameter(25)
+# Set diameters BD plastpak 50/60mL
+PHDcoll.setdiameter(26.7)
+PHDha.setdiameter(26.7)
 # Set Flow Rates
 PHDcoll.setflowrate(flowRate)
 PHDha.setflowrate(flowRate)
@@ -56,16 +56,18 @@ PHDha.settargetvolume(tVol)
 
 
 for i in range(0,cycles):
-  push("Starting cycle: " + str(i))
+  push("Starting Collagen cycle: " + str(i))
   PHDcoll.infuse()
   logging.info('Collagen: infusing, cycle ' + str(i))
   PHDcoll.waituntiltarget()
   PHDcoll.stop()
   logging.info('Collagen: stopped infusing, cycle ' + str(i))
+  push("Starting Hydroxyapatite cycle: " + str(i))
   PHDha.infuse()
   logging.info('HAnp: infusing, cycle ' + str(i))
   PHDha.waituntiltarget()
   PHDha.stop()
   logging.info('HAnp: stopped infusing, cycle ' + str(i))
 
+push("Job Complete :)")
 sys.exit()
