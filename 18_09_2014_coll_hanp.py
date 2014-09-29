@@ -15,8 +15,8 @@ def push(message):
   conn = httplib.HTTPSConnection("api.pushover.net:443")
   conn.request("POST", "/1/messages.json",
     urllib.urlencode({
-      "token": pushover_user_key,
-      "user": pushover_app_key,
+      "token": pushover_app_key,
+      "user": pushover_user_key,
       "message": message,
     }), { "Content-type": "application/x-www-form-urlencoded" })
   conn.getresponse()
