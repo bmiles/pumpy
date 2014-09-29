@@ -56,7 +56,7 @@ PHDha.settargetvolume(tVol)
 
 
 for i in range(0,cycles):
-  push("Starting cycle" + stri(i))
+  push("Starting cycle" + str(i))
   PHDcoll.infuse()
   logging.info('Collagen: infusing, cycle ' + str(i))
   PHDcoll.stop()
