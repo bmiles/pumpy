@@ -40,7 +40,7 @@ PHDcoll = pumpy.PHD2000(chain,address=1, name="PHDcollagen") # PHD2000
 PHDha = pumpy.PHD2000(chain,address=12, name="PHDhaNP") # special pump
 
 tVol = 2000 # 2mL
-tTime = 30 # 60 minutes
+tTime = 1 # 60 minutes
 flowRate = tVol/tTime
 cycles = 20
 
@@ -56,13 +56,15 @@ PHDha.settargetvolume(tVol)
 
 
 for i in range(0,cycles):
-  push("Starting cycle" + str(i))
+  push("Starting cycle: " + str(i))
   PHDcoll.infuse()
   logging.info('Collagen: infusing, cycle ' + str(i))
+  PHDcoll.waituntiltarget()
   PHDcoll.stop()
   logging.info('Collagen: stopped infusing, cycle ' + str(i))
   PHDha.infuse()
   logging.info('HAnp: infusing, cycle ' + str(i))
+  PHDha.waituntiltarget()
   PHDha.stop()
   logging.info('HAnp: stopped infusing, cycle ' + str(i))
 
