@@ -35,9 +35,9 @@ globalFlowRate = 100
 
 doseList = [0.00,10.00,20.00,30.00,40.00,50.00,60.00,70.00,80.00,90.00,100.00]
 
-# Set diameters BD plastpak 50/60mL
-bufferPump.setdiameter(26.7)
-dosePump.setdiameter(26.7)
+# Set diameters BD plastpak 10mL
+bufferPump.setdiameter(14.5)
+dosePump.setdiameter(14.5)
 
 # accepts a percent of the flow as a dosing, and how long one wants to dose for.
 def doseIt(dose, doseTime):
@@ -77,7 +77,7 @@ def multiDoseIt(doses, doseTime):
 # Does a 10 minut equilibration, followed by 10 different
 # doses with 5 minutes of dosing at each.
 
-doseIt(0, 10 * 60) #single dose of buffer for 10 minutes to equilibrate
-multiDoseIt(doseList, 5*60)
+doseIt(0, 45 * 60) #single dose of buffer for 45 minutes to equilibrate
+multiDoseIt(doseList, 5*60) #dose time of 5 mins
 push("Job Complete :)")
 sys.exit()
