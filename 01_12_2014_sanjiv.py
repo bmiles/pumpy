@@ -31,7 +31,7 @@ dosePump = pumpy.PHD2000(chain,address=12, name="Dose") # special pump
 
 #Experimental Setup
 #Set flow rate for whole experiment
-globalFlowRate = tVol/tTime
+globalFlowRate = 100
 
 doseList = [0,10,20,30,40,50,60,70,80,90,100]
 
