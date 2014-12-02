@@ -31,9 +31,9 @@ dosePump = pumpy.PHD2000(chain,address=12, name="Dose") # special pump
 
 #Experimental Setup
 #Set flow rate for whole experiment
-globalFlowRate = 100
+globalFlowRate = 100.00
 
-doseList = [0,10,20,30,40,50,60,70,80,90,100]
+doseList = [0.00,10.00,20.00,30.00,40.00,50.00,60.00,70.00,80.00,90.00,100.00]
 
 # Set diameters BD plastpak 50/60mL
 bufferPump.setdiameter(26.7)
@@ -43,7 +43,7 @@ dosePump.setdiameter(26.7)
 def doseIt(dose, doseTime):
     # blank condition
     if dose == 0:
-        bufferPump.setflowrate(((100-dose)/100) * globalFlowRate)
+        bufferPump.setflowrate(((100.00-dose)/100.00) * globalFlowRate)
 
         bufferPump.infuse()
 
@@ -53,8 +53,8 @@ def doseIt(dose, doseTime):
         bufferPump.stop()
         logging.info('Infusion finished at ' + str(dose)) #+ 'percent dose for ' str((doseTime/60)) +'minutes...')
     else:
-        bufferPump.setflowrate(((100-dose)/100) * globalFlowRate)
-        dosePump.setflowrate((dose/100) * globalFlowRate)
+        bufferPump.setflowrate(((100.00-dose)/100.00) * globalFlowRate)
+        dosePump.setflowrate((dose/100.00) * globalFlowRate)
 
         bufferPump.infuse()
         dosePump.infuse()
