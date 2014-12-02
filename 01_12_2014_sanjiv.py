@@ -47,12 +47,12 @@ def doseIt(dose, doseTime):
     bufferPump.infuse()
     dosePump.infuse()
 
-    logging.info('Infusion started at ' + str(dose) + 'percent dose for ' str((doseTime/60)) +'minutes...')
+    logging.info('Infusion started at ' + str(dose) #+ 'percent dose for ' str((doseTime/60)) +'minutes...')
     time.sleep(doseTime)
 
     bufferPump.stop()
     dosePump.stop()
-    logging.info('Infusion finished at ' + str(dose) + 'percent dose for ' str((doseTime/60)) +'minutes...')
+    logging.info('Infusion finished at ' + str(dose) #+ 'percent dose for ' str((doseTime/60)) +'minutes...')
 
 
 #iterates through a list of dosing percents and sens that to the infuse function.
