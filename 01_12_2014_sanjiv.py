@@ -41,19 +41,30 @@ dosePump.setdiameter(26.7)
 
 # accepts a percent of the flow as a dosing, and how long one wants to dose for.
 def doseIt(dose, doseTime):
-    bufferPump.setflowrate(((100-dose)/100) * globalFlowRate)
-    dosePump.setflowrate((dose/100) * globalFlowRate)
+    # blank condition
+    if dose == 0:
+        bufferPump.setflowrate(((100-dose)/100) * globalFlowRate)
 
-    bufferPump.infuse()
-    dosePump.infuse()
+        bufferPump.infuse()
 
-    logging.info('Infusion started at ' + str(dose)) #+ 'percent dose for ' str((doseTime/60)) +'minutes...')
-    time.sleep( doseTime )
+        logging.info('Infusion started at ' + str(dose)) #+ 'percent dose for ' str((doseTime/60)) +'minutes...')
+        time.sleep( doseTime )
 
-    bufferPump.stop()
-    dosePump.stop()
-    logging.info('Infusion finished at ' + str(dose)) #+ 'percent dose for ' str((doseTime/60)) +'minutes...')
+        bufferPump.stop()
+        logging.info('Infusion finished at ' + str(dose)) #+ 'percent dose for ' str((doseTime/60)) +'minutes...')
+    else:
+        bufferPump.setflowrate(((100-dose)/100) * globalFlowRate)
+        dosePump.setflowrate((dose/100) * globalFlowRate)
 
+        bufferPump.infuse()
+        dosePump.infuse()
+
+        logging.info('Infusion started at ' + str(dose)) #+ 'percent dose for ' str((doseTime/60)) +'minutes...')
+        time.sleep( doseTime )
+
+        bufferPump.stop()
+        dosePump.stop()
+        logging.info('Infusion finished at ' + str(dose)) #+ 'percent dose for ' str((doseTime/60)) +'minutes...')
 
 #iterates through a list of dosing percents and sens that to the infuse function.
 def multiDoseIt(doses, doseTime):
